@@ -23,6 +23,7 @@ const Login = () => {
     email: yup.string().required("Email obrigatorio!!").email(),
     password: yup.string().required("Senha obrigatorio!"),
   });
+  console.log(loginUser);
 
   const {
     register,
