@@ -85,10 +85,11 @@ export const AuthProvider = ({ children }: iAuthProps) => {
   };
 
   const loginUser = async (data: iLogin): Promise<void> => {
+    console.log(data, "aqui");
     try {
       setLoading(true);
-
-      const response = await instance.post<iResponse>("/login", data);
+      console.log(data);
+      const response = await instance.post<iResponse>("/session", data);
 
       window.localStorage.clear();
 
