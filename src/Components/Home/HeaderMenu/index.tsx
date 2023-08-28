@@ -46,7 +46,7 @@ const HeaderMenu = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/login">
+                  <Link to="/session">
                     {" "}
                     <p>Login</p>
                   </Link>
