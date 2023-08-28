@@ -35,7 +35,7 @@ const LandWithImage = () => {
               melhores oportunidades da sua carreira como dev.
             </p>
 
-            <Link to={"./login"}>Acesse já!</Link>
+            <Link to={"./session"}>Acesse já!</Link>
           </div>
         </motion.div>
       </Section>
