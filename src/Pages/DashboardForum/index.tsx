@@ -56,7 +56,7 @@ const Forum = () => {
 
             <form onSubmit={handleSubmit(newPost)}>
               <textarea
-                {...register("text")}
+                {...register("content")}
                 placeholder="Fale um pouco sobre o que está estudando ou compartilhe alguma dica de estudo"
               ></textarea>
               <DivButton>
@@ -75,11 +75,11 @@ const Forum = () => {
                 <CardPosts
                   id={posts.id}
                   key={posts.id}
-                  postsContent={posts.text}
-                  postsUId={posts.userId}
-                  postsImage={posts.image}
-                  postsName={posts.name}
-                  postsOccupation={posts.occupation}
+                  postsContent={posts.content}
+                  postsUId={posts.author.id}
+                  postsImage={posts.author.image}
+                  postsName={posts.author.name}
+                  postsOccupation={posts.author.occupation}
                   postidCard={posts.id}
                 />
               ))}
