@@ -11,19 +11,19 @@ const ModalEdit = ({
   postsContent,
 }: iPropsModal) => {
   const { register, handleSubmit } = useForm({
-    defaultValues: { text: postsContent },
+    defaultValues: { content: postsContent },
   });
 
   const { post, setPost, getPosts } = useContext(ForumContext);
 
-  const editPost = async (text: any) => {
-    console.log(text);
+  const editPost = async (content: any) => {
+    console.log(content);
     try {
       const token = localStorage.getItem("@dev-path:token");
       instance.defaults.headers.authorization = `Bearer ${token}`;
 
-      const { data } = await instance.patch(`/posts/${postidCard}`, text);
-      console.log(data);
+      const { data } = await instance.patch(`/post/${postidCard}`, content);
+
       getPosts();
       setPost([...post, data]);
       handleModalUpdate();
@@ -41,7 +41,7 @@ const ModalEdit = ({
           <h2>Editar postagem</h2>
 
           <form className="modalForm" onSubmit={handleSubmit(editPost)}>
-            <textarea id="text" {...register("text")} />
+            <textarea id="text" {...register("content")} />
             <div>
               <button className="edit">Editar</button>
               <button className="cancel" onClick={() => handleModalUpdate()}>

@@ -19,7 +19,7 @@ const Forum = () => {
   const { profile } = useContext(UserContext);
 
   const addPost = yup.object().shape({
-    text: yup.string().required("*Campo obrigatório"),
+    content: yup.string().required("*Campo obrigatório"),
   });
 
   const {
@@ -30,6 +30,7 @@ const Forum = () => {
   } = useForm<iPost>({
     resolver: yupResolver(addPost),
   });
+  console.log(newPost);
 
   return (
     <>

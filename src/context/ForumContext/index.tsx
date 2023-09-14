@@ -63,17 +63,13 @@ export const DashboardForum = ({ children }: iDefaultContextProps) => {
   const newPost = async (data: iPost) => {
     const newData = {
       ...data,
-      userId: profile?.id,
-      name: profile?.name,
-      image: profile?.image,
-      occupation: profile?.occupation,
     };
 
     try {
       const token = localStorage.getItem("@dev-path:token");
       instance.defaults.headers.authorization = `Bearer ${token}`;
 
-      const resRequest = await instance.post("/post", newData);
+      const resRequest = await instanceHeaders.post("/post", newData);
 
       setPost([resRequest.data, ...post]);
 
