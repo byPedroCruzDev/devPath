@@ -62,7 +62,8 @@ export const AuthProvider = ({ children }: iAuthProps) => {
     try {
       setLoading(true);
 
-      const response = await instance.post<iResponse>("/register", data);
+      const response = await instance.post<iResponse>("/users", data);
+      console.log(response, "resposta aqui");
 
       toast.success("Cadastro Realizado com Sucesso", {
         position: "top-right",
@@ -75,7 +76,7 @@ export const AuthProvider = ({ children }: iAuthProps) => {
         theme: "dark",
       });
 
-      navigate("/login");
+      navigate("/sessions");
     } catch (error: any) {
       const requestError = error;
       toast.error(requestError.response?.data);
@@ -85,7 +86,6 @@ export const AuthProvider = ({ children }: iAuthProps) => {
   };
 
   const loginUser = async (data: iLogin): Promise<void> => {
-    console.log(data, "aqui");
     try {
       setLoading(true);
       console.log(data);
