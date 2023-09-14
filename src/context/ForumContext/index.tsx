@@ -9,7 +9,8 @@ export interface iDefaultContextProps {
 
 export interface iPost {
   userId: number;
-  text: string;
+  content: string;
+  author: any;
   name: string;
   image: string;
   occupation: string;
@@ -42,10 +43,9 @@ export const DashboardForum = ({ children }: iDefaultContextProps) => {
       const token = localStorage.getItem("@dev-path:token");
       instance.defaults.headers.authorization = `Bearer ${token}`;
 
-      const user = await instance.get("/post");
-      setPost([...user.data.reverse().splice(0, 10)]);
+      const posts = await instanceHeaders.get("/post");
 
-      console.log(user);
+      setPost([...posts.data]);
     } catch (error) {
       console.log(error);
     }
@@ -55,7 +55,7 @@ export const DashboardForum = ({ children }: iDefaultContextProps) => {
     const token = localStorage.getItem("@dev-path:token");
     instance.defaults.headers.authorization = `Bearer ${token}`;
 
-    await instanceHeaders.delete(`/posts/${postidCard}`);
+    await instanceHeaders.delete(`/post/${postidCard}`);
 
     getPosts();
   };
@@ -73,7 +73,7 @@ export const DashboardForum = ({ children }: iDefaultContextProps) => {
       const token = localStorage.getItem("@dev-path:token");
       instance.defaults.headers.authorization = `Bearer ${token}`;
 
-      const resRequest = await instance.post("/posts", newData);
+      const resRequest = await instance.post("/post", newData);
 
       setPost([resRequest.data, ...post]);
 
