@@ -19,7 +19,7 @@ export interface iUser {
 }
 
 export interface iResponse {
-  accessToken: string;
+  token: string;
   user: iProfile;
 }
 
@@ -62,7 +62,7 @@ export const AuthProvider = ({ children }: iAuthProps) => {
     try {
       setLoading(true);
 
-      const response = await instance.post<iResponse>("/register", data);
+      const response = await instance.post<iResponse>("/users", data);
 
       toast.success("Cadastro Realizado com Sucesso", {
         position: "top-right",
@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }: iAuthProps) => {
         theme: "dark",
       });
 
-      navigate("/login");
+      navigate("/sessions");
     } catch (error: any) {
       const requestError = error;
       toast.error(requestError.response?.data);
@@ -85,7 +85,6 @@ export const AuthProvider = ({ children }: iAuthProps) => {
   };
 
   const loginUser = async (data: iLogin): Promise<void> => {
-    console.log(data, "aqui");
     try {
       setLoading(true);
       console.log(data);
@@ -93,9 +92,10 @@ export const AuthProvider = ({ children }: iAuthProps) => {
 
       window.localStorage.clear();
 
-      const { accessToken, user } = response.data;
+      const { token, user } = response.data;
+      console.log(token);
 
-      localStorage.setItem("@dev-path:token", accessToken);
+      localStorage.setItem("@dev-path:token", token);
       localStorage.setItem("@dev-path:id", user.id);
 
       setProfile(user);
