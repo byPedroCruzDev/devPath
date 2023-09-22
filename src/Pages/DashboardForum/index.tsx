@@ -25,12 +25,10 @@ const Forum = () => {
   const {
     register,
     handleSubmit,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     formState: { errors },
   } = useForm<iPost>({
     resolver: yupResolver(addPost),
   });
-  console.log(newPost);
 
   return (
     <>
@@ -48,7 +46,7 @@ const Forum = () => {
             </span>
             <div>
               <h2>{profile?.name}</h2>
-              <h3>{profile?.occupation}</h3>
+              <p>{profile?.occupation}</p>
             </div>
           </DivUser>
 
@@ -57,9 +55,9 @@ const Forum = () => {
 
             <form onSubmit={handleSubmit(newPost)}>
               <textarea
-                {...register("content")}
                 placeholder="Fale um pouco sobre o que está estudando ou compartilhe alguma dica de estudo"
-              ></textarea>
+                {...register("content")}
+              />
               <DivButton>
                 <button type="submit">Postar</button>
               </DivButton>

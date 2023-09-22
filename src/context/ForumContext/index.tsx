@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { instance, instanceHeaders } from "../../service/api";
 import { UserContext } from "../UserContext";
+import { useForm } from "react-hook-form";
 // import { toast } from "react-toastify";
 
 export interface iDefaultContextProps {
@@ -64,7 +65,6 @@ export const DashboardForum = ({ children }: iDefaultContextProps) => {
     const newData = {
       ...data,
     };
-
     try {
       const token = localStorage.getItem("@dev-path:token");
       instance.defaults.headers.authorization = `Bearer ${token}`;
@@ -72,8 +72,6 @@ export const DashboardForum = ({ children }: iDefaultContextProps) => {
       const resRequest = await instanceHeaders.post("/post", newData);
 
       setPost([resRequest.data, ...post]);
-
-      console.log(post);
 
       //toast.success("Aeee! Publicado com sucesso! 👩‍💻");
     } catch (error) {

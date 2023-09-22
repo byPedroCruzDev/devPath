@@ -20,7 +20,7 @@ export const ContainerPost = styled.li`
     display: flex;
 
     padding: 5px;
-    width: 90%;
+    width: 100%;
     height: 100%;
     gap: 15px;
     margin: 0 auto;
@@ -35,6 +35,7 @@ export const ContainerPost = styled.li`
       display: flex;
       flex-direction: column;
       text-align: start;
+      width: 90%;
     }
   }
 
@@ -50,8 +51,8 @@ export const ContainerPost = styled.li`
   span {
     font-family: "Inter";
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
+    font-weight: 200;
+    font-size: 12px;
     line-height: 21px;
     text-align: start;
   }
@@ -62,17 +63,22 @@ export const ContainerPost = styled.li`
 `;
 
 export const SectionPost = styled.section`
+  background-color: #f9f9f9;
+  border-radius: 8px;
+
+  margin-top: 5px;
+
   width: 100%;
-  height: 90%;
-  align-items: flex-start;
+  height: 95%;
+  max-height: 105px;
+
+  text-align: start;
   padding: 2px 5px;
-
-  border: 2px solid var(--main-color5);
-  border-radius: 0px 10px 10px 10px;
-
+  overflow: auto;
   p {
-    text-align: start;
-    font-size: var(--text-size4);
+    display: flex;
+    align-items: start;
+    font-size: 14px;
   }
 `;
 
@@ -105,9 +111,10 @@ export const EditPost = styled.div`
   .deletePost {
     background: #ea2444;
   }
-  
+
   svg {
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    margin: 0 15px;
+    height: 15px;
   }
 `;
