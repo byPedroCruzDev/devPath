@@ -3,12 +3,12 @@ import axios from "axios";
 const token = localStorage.getItem("@dev-path:token");
 
 export const instance = axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL: "https://devpath.onrender.com/",
   timeout: 20000,
 });
 
 export const instanceHeaders = axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL: "https://devpath.onrender.com/",
   timeout: 20000,
   headers: { Authorization: `Bearer ${token}` },
 });
