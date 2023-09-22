@@ -23,9 +23,8 @@ const ModalEdit = ({
       instance.defaults.headers.authorization = `Bearer ${token}`;
 
       const { data } = await instance.patch(`/post/${postidCard}`, content);
-
-      getPosts();
       setPost([...post, data]);
+      getPosts();
       handleModalUpdate();
     } catch (error) {
       console.log(error);

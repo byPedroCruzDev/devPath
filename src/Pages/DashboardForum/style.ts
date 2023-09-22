@@ -39,16 +39,16 @@ export const Container = styled.main`
     font-size: 1.25rem;
   }
 
-  h3 {
-    font-weight: 400;
-    font-size: 1rem;
+  p {
+    font-weight: 200;
+    font-size: 14px;
   }
 
   span {
     font-size: 1rem;
     font-weight: 700;
   }
-  
+
   form {
     display: flex;
     height: 150px;
@@ -124,7 +124,7 @@ export const DivUser = styled.div`
 
   .circleImage {
     display: inline-block;
-
+    margin: 0 auto;
     width: 200px;
     height: 200px;
 
