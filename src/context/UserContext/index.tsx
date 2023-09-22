@@ -20,7 +20,7 @@ export interface iUser {
 
 export interface iResponse {
   token: string;
-  user: iProfile;
+  userReturn: iProfile;
 }
 
 export interface iProfile {
@@ -92,13 +92,13 @@ export const AuthProvider = ({ children }: iAuthProps) => {
 
       window.localStorage.clear();
 
-      const { token, user } = response.data;
-      console.log(token);
+      const { token, userReturn } = response.data;
+      console.log(userReturn);
 
       localStorage.setItem("@dev-path:token", token);
-      localStorage.setItem("@dev-path:id", user.id);
+      localStorage.setItem("@dev-path:id", userReturn.id);
 
-      setProfile(user);
+      setProfile(userReturn);
 
       toast.success("Logado com Sucesso", {
         position: "top-right",
