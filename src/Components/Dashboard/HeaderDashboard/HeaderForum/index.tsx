@@ -1,9 +1,13 @@
 import { Header } from "./style";
 import { Link, useNavigate } from "react-router-dom";
 import { BsBoxArrowRight } from "react-icons/bs";
+import { setLocale } from "yup";
 
 const HeaderDashboardForum = () => {
   const navigate = useNavigate();
+  const clearApplications = () => {
+    localStorage.clear();
+  };
 
   return (
     <>
@@ -15,7 +19,7 @@ const HeaderDashboardForum = () => {
               Voltar
             </Link>
             <Link to="/">
-              <BsBoxArrowRight />
+              <BsBoxArrowRight onClick={clearApplications} />
             </Link>
           </div>
         </div>

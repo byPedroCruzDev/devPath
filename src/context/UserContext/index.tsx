@@ -93,7 +93,6 @@ export const AuthProvider = ({ children }: iAuthProps) => {
       window.localStorage.clear();
 
       const { token, userReturn } = response.data;
-      console.log(userReturn);
 
       localStorage.setItem("@dev-path:token", token);
       localStorage.setItem("@dev-path:id", userReturn.id);
@@ -113,8 +112,7 @@ export const AuthProvider = ({ children }: iAuthProps) => {
 
       navigate("/dashboard/selectTask");
     } catch (error: any) {
-      const requestError = error;
-      toast.error(requestError.response?.data);
+      toast.error("Email ou senha invalidos");
     } finally {
       setLoading(false);
     }
